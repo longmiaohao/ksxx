@@ -1,0 +1,106 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head><link rel="stylesheet" href="style.css" type="text/css" /><title>
+	2019年全国硕士研究生统一入学考试中南民族大学考点考场查询系统
+</title></head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0">
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="500"><img src="images/title.gif" width="500" height="38"></td>
+    <td background="images/header_blue_rtl.jpg" width="100%"></td>
+  </tr>
+</table>
+
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="R1N7VaaE7e6ZSFi1zc/LEg5HFUYYjSA8K1dqBvbKOvor7wqR3ANIDeZ9Wdh5Rdu/SjM9b13dvSHBHOVC5xZZDb+S+YfEHMs4ywKttNn3CLm3csuQP1cXP0Qxfp+BkDjbALatiMA0KxYBAaLI09mJpx8EmY/FOQns/FIjgNWk7pwM0WIxLXkwtjwC8qpHHVnKzdtRd729hGoDb94ihtw9CmUHScweMh2bPVl6BKi+nQpCBftZ8lUsi6MNCAD+BOpqDTJPHQ==" />
+</div>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="30EA2EE4" />
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="SrdH921U8blFCuVUpzI3HLNGEO2JnEMPLmoqz1FQ57TBvlqt2ox8pDh3CHBrcLiS4bangUAKW661d3Wxn4D7J0Zz0LhiABhm5v5ksJ9Mhw3zWuSI" />
+</div>
+    <div id="content">
+        <p>
+          
+          <br />
+          <br />
+</p>
+        <p align="center"><font size="+3" face="黑体,宋体">2019年全国硕士研究生统一入学考试</font><br />
+          <br />
+          <font color="#3300CC" size="+2" face="楷体_GB2312, 仿宋_GB2312, 宋体">中南民族大学考点考场查询系统</font></p>
+        <table align="center" style="width: 750px; height: 195px; font-size: 14px;">
+            <tr>
+                <td colspan="1" style="width: 71px">
+                    <img src="images/tip.png"  width="64" height="64" /></td>
+              <td colspan="4"><span style="font-size: 10.5pt; color: red; font-family: 宋体; mso-bidi-font-family: 'Times New Roman';
+                        mso-font-kerning: 1.0pt; mso-ansi-language: EN-US; mso-fareast-language: ZH-CN;
+                        mso-bidi-language: AR-SA">              温馨提示：请充分估计市内交通状况，合理安排乘车时间及车次。</span></td>
+            </tr>
+                <td height="50" colspan="4" valign="bottom">
+                    请输入以下信息：</td>
+            </tr>
+            <tr>
+                <td height="40" style="width: 71px">
+                    准考证号:</td>
+                <td style="width: 10px" height="40">
+                    <input name="TextBox1" type="text" id="zkzh" /></td>
+                <td height="40">
+                    <div align="right">证件号码:</div></td>
+                <td style="width: 214px" height="40">
+                    <input name="TextBox2" type="text" id="zjhm" />
+&nbsp;&nbsp;                </td>
+            </tr>
+            <tr>
+                <td height="40">
+                    <input type="submit" name="Button1" value="查看信息" id="submit" class="button1" onclick='sub()'/></td>
+                <td height="40">&nbsp;</td>
+                <td height="40">&nbsp;</td>
+                <td height="40" class="banquan"><a href="2019考场查询公告.html.mht" target="_blank">2019考场查询公告</a>    <a href="kccxmap.jpg" target="_blank">教学楼示意图</a></td>
+            </tr>
+            <tr>
+              <td colspan="4" height="20" valign="top"><hr /></td>
+            </tr>
+            <tr>
+                <td height="200" colspan="4" valign="top">
+                    <table cellspacing="0" border="0" id="FormView1" style="border-collapse:collapse;">
+
+</table></td>
+            </tr>
+        </table>
+    
+    </div>
+    <div class="footer">
+    <p align="center" class="style5"> Copyright 中南民族大学研究生院. All rights reserve<br>
+电话：027-67843396　邮箱：yjsb@scuec.edu.cn </p>
+</div>
+</body>
+</html>
+{% load staticfiles %}
+<script src="{% static "js/jquery-2.1.1.js" %}"></script>
+<script>
+    function sub() {
+        var zkzh = document.getElementById("zkzh").value;
+        var zjhm = document.getElementById("zjhm").value;
+        var json_str = '{"zjhm":' + zjhm + ',"zkzh":' + zkzh + '}';
+        var json = JSON.parse(json_str);
+        $.ajax({
+            url: "",
+            type:"POST",
+            data:json,
+            success:function (data) {
+                data = JSON.parse(data);
+                alert(typeof(data));
+            },
+            error:function (result) {
+
+                alert(result);
+            }
+            }
+        )
+    }
+</script>
